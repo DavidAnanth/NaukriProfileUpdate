@@ -6,16 +6,8 @@
   
   <properties>
 		<project.build.sourceEncodiing>UTF-8</project.build.sourceEncodiing>
-		<cucumber.version>7.10.1</cucumber.version>
-		<junit.version>4.13.2</junit.version>
 		<extentreports.cucumber7.adapter.version>1.9.2</extentreports.cucumber7.adapter.version>
 		<extentreports.version>5.0.9</extentreports.version>
-		<selenium.version>4.3.0</selenium.version>
-		<webdrivermanager.version>5.3.1</webdrivermanager.version>
-		<maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
-		<maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
-		<maven.compiler.source.version>11</maven.compiler.source.version>
-		<maven.compiler.target.version>11</maven.compiler.target.version>
 		<maven.cucumber.reporting.version>5.7.4</maven.cucumber.reporting.version>
 		<json.simple.version>1.1.1</json.simple.version>
 	</properties>
@@ -58,13 +50,6 @@
     <version>7.21.1</version>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-<dependency>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <version>3.5.2</version>
-</dependency>
-
 <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 <dependency>
     <groupId>com.aventstack</groupId>
@@ -78,25 +63,39 @@
     <artifactId>poi-ooxml</artifactId>
     <version>5.4.0</version>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
+<dependency>
+    <groupId>tech.grasshopper</groupId>
+    <artifactId>extentreports-cucumber7-adapter</artifactId>
+    <version>1.14.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+<dependency>
+    <groupId>com.googlecode.json-simple</groupId>
+    <artifactId>json-simple</artifactId>
+    <version>1.1.1</version>
+</dependency>
  
  </dependencies>
  
  <build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compiler.plugin.version}</version>
+			    <groupId>org.apache.maven.plugins</groupId>
+   				 <artifactId>maven-compiler-plugin</artifactId>
+   				 <version>3.14.0</version>
 				<configuration>
-					<source>${maven.compiler.source.version}</source>
-					<target>${maven.compiler.target.version}</target>
+					<source>21</source>
+					<target>21</target>
 					<encoding>${project.build.sourceEncodiing}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.surefire.plugin.version}</version>
+				     <groupId>org.apache.maven.plugins</groupId>
+   					 <artifactId>maven-surefire-plugin</artifactId>
+    				 <version>3.5.2</version>
 				<configuration>
 					<properties>
 						<property>
@@ -105,14 +104,15 @@
 						</property>
 					</properties>
 					<includes>
-						<include>**/*Runner.java</include>
+						<include>**/*TestRunner.java</include>
 					</includes>
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>${maven.cucumber.reporting.version}</version>
+				<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+    			<groupId>net.masterthought</groupId>
+    			<artifactId>cucumber-reporting</artifactId>
+    			<version>5.8.4</version>
 				<executions>
 					<execution>
 						<id>execution</id>
