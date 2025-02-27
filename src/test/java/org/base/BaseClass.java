@@ -37,7 +37,7 @@ public class BaseClass {
 	public static WebDriver drv;
 	
 	public static void launchBrowser() {
-		WebDriverManager.chromedriver().setup();
+//		WebDriverManager.chromedriver().setup();
 		drv = new ChromeDriver();
 	}
 	
