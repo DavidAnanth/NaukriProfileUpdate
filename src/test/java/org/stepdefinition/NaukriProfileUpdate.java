@@ -21,7 +21,7 @@ public class NaukriProfileUpdate extends BaseClass {
 	
 	@Given("Open chrome browser and hit the Naukri url")
 	public void open_chrome_browser_and_hit_the_naukri_url() {
-	     launchUrl("https://www.naukri.com/");
+	     launchUrl("https://www.naukri.com/?othersrcp=2633&wExp=N&r=in&othersrcp=11457&wExp=N");
 	}
 
 	@When("when website is loaded, click on Login button.")
